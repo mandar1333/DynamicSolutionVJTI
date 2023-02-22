@@ -8,6 +8,9 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
+    fontFamily: {
+      'pop': ['Poppins', 'sans-serif']
+    },
     screens: {
       'xs':'520px',
       
