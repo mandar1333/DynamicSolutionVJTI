@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\UserAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home');
-});
+Route::get('/home',[ServicesController::class,'serviceFetch']);
  Route::view('/login','login');
+ Route::view('/cart','cart');
  Route::view('/services','services');
  Route::view('/contact','contact');
+ Route::view('/checkout','checkout');
  Route::controller(UserAuth::class)->group(function(){
-    Route::post('/user','uVerification')->name('user');
+    Route::post('/user','uVerification')->name('user');//parameter name inside the name funciton should be same as 1 parameter of post funct 
  });

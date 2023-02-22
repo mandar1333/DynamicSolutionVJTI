@@ -6,7 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite('resources/css/app.css')
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-
+    <!-- FONT -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbO90cT0yC58yZySAryqrikz2hBfxPnqo&libraries=geometry&callback=initMap"></script>
+    <!-- <link rel="stylesheet" href="appointment.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- //FONT -->
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -235,60 +243,108 @@
 </head>
 
 
-<body class="h-[100vh] w-[100vw] bg-white overflow-hidden ">
-    <section class="dark  w-full h-full relative  overflow-y-scroll">
-        <header>
-            <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5  dark:bg-violet-900">
-                <div class="flex flex-row   justify-between items-center mx-auto max-w-screen-xl">
-                    <a href="home" class="flex items-center">
-                        <img src="login-images/dynamic_solution_logo.svg" class="mr-3  h-9 rounded" alt="Dynamic solution Logo" />
-<div class="flex flex-col">
-    <span class="sm:text-xl  font-semibold text-white ">Dynamic</span>
-    <span class="sm:text-sm text-xs  text-white -mt-1.5 ">solution</span>
-</div>
+<body onload="initMap()" class="h-[100vh] w-[100vw] bg-white overflow-hidden relative font-pop ">
+    <section class="dar  w-full h-full absolute  overflow-y-scroll">
+        <div class="fixed top-0 z-20 bg-white w-full">
+            <div id="header" class="px-4 py-5 mx-auto  sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div class="relative flex items-center justify-between">
+                    <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
+                        <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                            <rect x="3" y="1" width="7" height="12"></rect>
+                            <rect x="3" y="17" width="7" height="6"></rect>
+                            <rect x="14" y="1" width="7" height="6"></rect>
+                            <rect x="14" y="11" width="7" height="12"></rect>
+                        </svg>
+                        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">D Solution</span>
                     </a>
-                    <div class="flex items-center  lg:order-2">
-                        <a href="login" class="text-gray-800 dark:text-white hover:bg-gray-50 f  font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-violet-700 focus:outline-none ">Log in</a>
-                        
-                        <button data-collapse-toggle="mobile-menu-2" type="button" class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100  dark:text-gray-400 dark:hover:bg-violet-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-                            <span class="sr-only">Open main menu</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                            </svg>
-                            <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1" id="mobile-menu-2">
-                        <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                            <li>
-                                <a href="home" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">
-                            <li class="cursor-pointer active:opacity-70 select-none dark:hover:text-zinc-200 hover:text-rose-700 relative before:opacity-0 before:-translate-x-4 hover:before:translate-x-0 hover:before:opacity-100 before:transition-all  before:absolute hover:before:bg-rose-400 before:bg-rose-500 dark:before:bg-zinc-200  before:bottom-0 before:w-full before:h-[2.5px]">Home</li></a>
-                            </li>
-                            <li>
-                                <a href="services" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                            <li class="cursor-pointer active:opacity-70 select-none dark:hover:text-zinc-200 hover:text-rose-700 relative before:opacity-0 before:-translate-x-4 hover:before:translate-x-0 hover:before:opacity-100 before:transition-all  before:absolute hover:before:bg-rose-400 before:bg-rose-500 dark:before:bg-zinc-200  before:bottom-0 before:w-full before:h-[2.5px]">Services</li></a>
-                            </li>
-                            <li>
-                                <a href="#" class="block  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                            <li class=" cursor-pointer active:opacity-70 select-none dark:hover:text-zinc-200 hover:text-rose-700 relative before:opacity-0 before:-translate-x-4 hover:before:translate-x-0 hover:before:opacity-100 before:transition-all  before:absolute hover:before:bg-rose-400 before:bg-rose-500 dark:before:bg-zinc-200  before:bottom-0 before:w-full before:h-[2.5px]">About Us</li></a>
-                            </li>
-                            <li>
-                                <a href="contact" class="block  text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">
-                            <li class=" cursor-pointer active:opacity-70 select-none dark:hover:text-zinc-200 hover:text-rose-700 relative before:opacity-0 before:-translate-x-4 hover:before:translate-x-0 hover:before:opacity-100 before:transition-all  before:absolute hover:before:bg-rose-400 before:bg-rose-500 dark:before:bg-zinc-200  before:bottom-0 before:w-full before:h-[2.5px]">Contact Us</li></a>
-                            </li>
+                    <ul class=" items-center hidden space-x-8 lg:flex">
+                        <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
+                        <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
+                        <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
+                        <li><a href="/" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About us</a></li>
+                        <li>
+                            <a href="/" class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-600 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none" aria-label="Sign up" title="Sign up">
+                                Sign up
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Mobile menu -->
+                    <div class="lg:hidden">
+                        <div aria-label="toggler" class="flex justify-center items-center">
+                            <button aria-label="open" id="open" onclick="showNav(true)" class=" focus:outline-none focus:ring-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-black">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                </svg>
 
-                            <!-- <li>
-                                <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                            </li> -->
-                        </ul>
+                            </button>
+                            <button aria-label="close" id="close" onclick="showNav(true)" class="hidden focus:outline-none active:opacity-50 ">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-black">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+
+                            </button>
+                        </div>
+
+
+                        <!-- Mobile menu dropdown 
+                    <div class="absolute top-0 left-0 w-full">
+                        <div class="p-5 bg-white border rounded shadow-sm">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                            <a href="/" aria-label="Company" title="Company" class="inline-flex items-center">
+                                <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                                <rect x="3" y="1" width="7" height="12"></rect>
+                                <rect x="3" y="17" width="7" height="6"></rect>
+                                <rect x="14" y="1" width="7" height="6"></rect>
+                                <rect x="14" y="11" width="7" height="12"></rect>
+                                </svg>
+                                <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+                            </a>
+                            </div>
+                            <div>
+                            <button aria-label="Close Menu" title="Close Menu" class="p-2 -mt-2 -mr-2 transition duration-200 rounded hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+                                <svg class="w-5 text-gray-600" viewBox="0 0 24 24">
+                                <path
+                                    fill="currentColor"
+                                    d="M19.7,4.3c-0.4-0.4-1-0.4-1.4,0L12,10.6L5.7,4.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l6.3,6.3l-6.3,6.3 c-0.4,0.4-0.4,1,0,1.4C4.5,19.9,4.7,20,5,20s0.5-0.1,0.7-0.3l6.3-6.3l6.3,6.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L13.4,12l6.3-6.3C20.1,5.3,20.1,4.7,19.7,4.3z"
+                                ></path>
+                                </svg>
+                            </button>
+                            </div>
+                        </div>
+                        <nav>
+                            <ul class="space-y-4">
+                            <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Product</a></li>
+                            <li><a href="/" aria-label="Our product" title="Our product" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Features</a></li>
+                            <li><a href="/" aria-label="Product pricing" title="Product pricing" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">Pricing</a></li>
+                            <li><a href="/" aria-label="About us" title="About us" class="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400">About us</a></li>
+                            <li>
+                                <a
+                                href="/"
+                                class="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                aria-label="Sign up"
+                                title="Sign up"
+                                >
+                                Sign up
+                                </a>
+                            </li>
+                            </ul>
+                        </nav>
+                        </div>
+                    </div>
+                    -->
                     </div>
                 </div>
-            </nav>
-        </header>
-        @yield('content')
-        <footer id="footer_desk" class="footer  dark:bg-violet-900 relative w-full pt-2">
+
+            </div>
+        </div>
+
+        <div class=" " id="content">
+
+
+            @yield('content')
+        </div>
+        <!-- <footer id="footer_desk" class="footer  dark:bg-violet-900 relative w-full pt-2">
             <input type="checkbox" name="" id="" class="absolute right-0 peer/foot w-full opacity-0 z-30 h-10 cursor-pointer">
             <span class="text-black absolute right-[35%] peer-checked/foot:rotate-90 font-semibold dark:text-white">></span>
             <h1 class="text-black w-fit  m-auto dark:text-white">more info </h1>
@@ -360,7 +416,140 @@
                 </div>
             </div>
 
-        </footer>
+        </footer> -->
+
+        <!-- 
+        <div class="relative mt-16 bg-violet-800 text-gray-200">
+            <svg class="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16 text-violet-800" preserveAspectRatio="none" viewBox="0 0 1440 54">
+                <path fill="currentColor" d="M0 22L120 16.7C240 11 480 1.00001 720 0.700012C960 1.00001 1200 11 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"></path>
+            </svg>
+            <div class="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div class="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+                    <div class="md:max-w-md lg:col-span-2">
+                        <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
+                            <svg class="w-8 text-teal-accent-400" viewBox="0 0 24 24" stroke-linejoin="round" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" stroke="currentColor" fill="none">
+                                <rect x="3" y="1" width="7" height="12"></rect>
+                                <rect x="3" y="17" width="7" height="6"></rect>
+                                <rect x="14" y="1" width="7" height="6"></rect>
+                                <rect x="14" y="11" width="7" height="12"></rect>
+                            </svg>
+                            <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">Company</span>
+                        </a>
+                        <div class="mt-4 lg:max-w-sm">
+                            <p class="text-sm text-deep-purple-50">
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
+                            </p>
+                            <p class="mt-4 text-sm text-deep-purple-50">
+                                Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+                        <div>
+                            <p class="font-semibold tracking-wide text-teal-accent-400">
+                                Category
+                            </p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">News</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">World</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Games</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">References</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold tracking-wide text-teal-accent-400">Cherry</p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Web</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">eCommerce</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Business</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Entertainment</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Portfolio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold tracking-wide text-teal-accent-400">Apples</p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Media</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Brochure</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Nonprofit</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Educational</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Projects</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold tracking-wide text-teal-accent-400">
+                                Business
+                            </p>
+                            <ul class="mt-2 space-y-2">
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Infopreneur</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Personal</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Wiki</a>
+                                </li>
+                                <li>
+                                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Forum</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
+                    <p class="text-sm text-gray-100">
+                        © Copyright 2020 Lorem Inc. All rights reserved.
+                    </p>
+                    <div class="flex items-center mt-4 space-x-4 sm:mt-0">
+                        <a href="/" class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                <path d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z"></path>
+                            </svg>
+                        </a>
+                        <a href="/" class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400">
+                            <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
+                                <circle cx="15" cy="15" r="4"></circle>
+                                <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z"></path>
+                            </svg>
+                        </a>
+                        <a href="/" class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
+                                <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
         <!-- <footer>
             <div class="footer-2 bg-violet-800 pt-6 md:pt-12">
                 <div class="container px-4 mx-auto">
@@ -431,9 +620,242 @@
             </div>
         </footer> -->
     </section>
+    <div id="Main" class="xl:rounded-r absolute z-50  mt-  -translate-x-full left-0 lg:hidden  transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-64 bg-gray-900 flex-col">
+        <div class="hidden xl:flex justify-start p-6 items-center space-x-3">
+            <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sidebar2-svg1.svg" alt="logo" />
+            <p class="text-2xl leading-6 text-white">OvonRueden</p>
+        </div>
+        <div class="mt-6 flex flex-col justify-start items-center  pl-4 w-full border-gray-600 border-b space-y-3 pb-5 ">
+            <button class="flex jusitfy-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
+                <img class="fill-stroke " src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sidebar2-svg4.svg" alt="dashboard" />
+                <p class="text-base leading-4 ">Dashboard</p>
+            </button>
+            <button class="flex jusitfy-start items-center w-full  space-x-6 focus:outline-none text-white focus:text-indigo-400   rounded ">
+                <img class="fill-stroke" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sidebar2-svg5.svg" alt="users" />
+                <p class="text-base leading-4 ">Users</p>
+            </button>
+        </div>
+        <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
+            <button onclick="showMenu1(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+                <p class="text-sm leading-5  uppercase">Profile Overview</p>
+                <img class="transform" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sidebar2-svg6.svg" alt="profile overview" />
+            </button>
+            <div id="menu1" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg class="fill-stroke" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 10L11 14L17 20L21 4L3 11L7 13L9 19L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Messages</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 19C10.2091 19 12 17.2091 12 15C12 12.7909 10.2091 11 8 11C5.79086 11 4 12.7909 4 15C4 17.2091 5.79086 19 8 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.85 12.15L19 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 5L20 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 8L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Security</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2 w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 8.00002C15.1046 8.00002 16 7.10459 16 6.00002C16 4.89545 15.1046 4.00002 14 4.00002C12.8954 4.00002 12 4.89545 12 6.00002C12 7.10459 12.8954 8.00002 14 8.00002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 6H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 6H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 12H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8955 18.1046 16 17 16C15.8954 16 15 16.8955 15 18C15 19.1046 15.8954 20 17 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 18H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M19 18H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Settings</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6H7C6.46957 6 5.96086 6.21071 5.58579 6.58579C5.21071 6.96086 5 7.46957 5 8V17C5 17.5304 5.21071 18.0391 5.58579 18.4142C5.96086 18.7893 6.46957 19 7 19H16C16.5304 19 17.0391 18.7893 17.4142 18.4142C17.7893 18.0391 18 17.5304 18 17V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34314 18.6569 4 17 4C15.3431 4 14 5.34314 14 7C14 8.65685 15.3431 10 17 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Notifications</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 11H7C5.89543 11 5 11.8955 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8955 18.1046 11 17 11Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 11V7C8 5.93913 8.42143 4.92172 9.17157 4.17157C9.92172 3.42143 10.9391 3 12 3C13.0609 3 14.0783 3.42143 14.8284 4.17157C15.5786 4.92172 16 5.93913 16 7V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Passwords</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 21H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 21V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 4L19 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Goals</p>
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
+            <button onclick="showMenu2(true)" class="focus:outline-none focus:text-indigo-400  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+                <p class="text-sm leading-5 uppercase">VENDORS</p>
+                <img id="icon2" class="transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sidebar2-svg7.svg" alt="arrow" />
+            </button>
+            <div class=" flex justify-start flex-col items-start pb-5 ">
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg class="fill-stroke" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 10L11 14L17 20L21 4L3 11L7 13L9 19L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Messages</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 19C10.2091 19 12 17.2091 12 15C12 12.7909 10.2091 11 8 11C5.79086 11 4 12.7909 4 15C4 17.2091 5.79086 19 8 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.85 12.15L19 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 5L20 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 8L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Security</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2 w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 8.00002C15.1046 8.00002 16 7.10459 16 6.00002C16 4.89545 15.1046 4.00002 14 4.00002C12.8954 4.00002 12 4.89545 12 6.00002C12 7.10459 12.8954 8.00002 14 8.00002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 6H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 6H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 12H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8955 18.1046 16 17 16C15.8954 16 15 16.8955 15 18C15 19.1046 15.8954 20 17 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 18H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M19 18H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Settings</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6H7C6.46957 6 5.96086 6.21071 5.58579 6.58579C5.21071 6.96086 5 7.46957 5 8V17C5 17.5304 5.21071 18.0391 5.58579 18.4142C5.96086 18.7893 6.46957 19 7 19H16C16.5304 19 17.0391 18.7893 17.4142 18.4142C17.7893 18.0391 18 17.5304 18 17V14" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34314 18.6569 4 17 4C15.3431 4 14 5.34314 14 7C14 8.65685 15.3431 10 17 10Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Notifications</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 11H7C5.89543 11 5 11.8955 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8955 18.1046 11 17 11Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 11V7C8 5.93913 8.42143 4.92172 9.17157 4.17157C9.92172 3.42143 10.9391 3 12 3C13.0609 3 14.0783 3.42143 14.8284 4.17157C15.5786 4.92172 16 5.93913 16 7V11" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Passwords</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 21H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 21V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 4L19 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Goals</p>
+                </button>
+            </div>
+        </div>
+        <div class="flex flex-col justify-between items-center h-full pb-6   px-6  w-full  space-y-32 ">
+            <button onclick="showMenu3(true)" class="focus:outline-none focus:text-indigo-400  text-white flex justify-between items-center w-full py-5 space-x-14  ">
+                <p class="text-sm leading-5  uppercase">SERVICES</p>
+                <img id="icon2" class="transform rotate-180" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/sidebar2-svg7.svg" alt="arrow" />
+            </button>
+            <div class="hidden flex justify-start flex-col items-start pb-5 ">
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+                    <svg class="fill-stroke" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 10L11 14L17 20L21 4L3 11L7 13L9 19L12 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Messages</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 19C10.2091 19 12 17.2091 12 15C12 12.7909 10.2091 11 8 11C5.79086 11 4 12.7909 4 15C4 17.2091 5.79086 19 8 19Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10.85 12.15L19 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 5L20 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 8L17 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Security</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2 w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 8.00002C15.1046 8.00002 16 7.10459 16 6.00002C16 4.89545 15.1046 4.00002 14 4.00002C12.8954 4.00002 12 4.89545 12 6.00002C12 7.10459 12.8954 8.00002 14 8.00002Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 6H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M16 6H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 14C9.10457 14 10 13.1046 10 12C10 10.8954 9.10457 10 8 10C6.89543 10 6 10.8954 6 12C6 13.1046 6.89543 14 8 14Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 12H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 12H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 20C18.1046 20 19 19.1046 19 18C19 16.8955 18.1046 16 17 16C15.8954 16 15 16.8955 15 18C15 19.1046 15.8954 20 17 20Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M4 18H15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M19 18H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Settings</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10 6H7C6.46957 6 5.96086 6.21071 5.58579 6.58579C5.21071 6.96086 5 7.46957 5 8V17C5 17.5304 5.21071 18.0391 5.58579 18.4142C5.96086 18.7893 6.46957 19 7 19H16C16.5304 19 17.0391 18.7893 17.4142 18.4142C17.7893 18.0391 18 17.5304 18 17V14" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M17 10C18.6569 10 20 8.65685 20 7C20 5.34314 18.6569 4 17 4C15.3431 4 14 5.34314 14 7C14 8.65685 15.3431 10 17 10Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Notifications</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 11H7C5.89543 11 5 11.8955 5 13V19C5 20.1046 5.89543 21 7 21H17C18.1046 21 19 20.1046 19 19V13C19 11.8955 18.1046 11 17 11Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M8 11V7C8 5.93913 8.42143 4.92172 9.17157 4.17157C9.92172 3.42143 10.9391 3 12 3C13.0609 3 14.0783 3.42143 14.8284 4.17157C15.5786 4.92172 16 5.93913 16 7V11" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Passwords</p>
+                </button>
+                <button class="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-52">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 21H12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 21V3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M10 4L19 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <p class="text-base leading-4  ">Goals</p>
+                </button>
+            </div>
+            <div class=" flex justify-between items-center w-full">
+                <div class="flex justify-center items-center  space-x-2">
+                    <div>
+                        <img class="rounded-full" src="https://i.ibb.co/L1LQtBm/Ellipse-1.png" alt="avatar" />
+                    </div>
+                    <div class="flex justify-start flex-col items-start">
+                        <p class="cursor-pointer text-sm leading-5 text-white">Alexis Enache</p>
+                        <p class="cursor-pointer text-xs leading-3 text-gray-300">alexis81@gmail.com</p>
+                    </div>
+                </div>
+                <svg class="cursor-pointer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.325 4.317C10.751 2.561 13.249 2.561 13.675 4.317C13.7389 4.5808 13.8642 4.82578 14.0407 5.032C14.2172 5.23822 14.4399 5.39985 14.6907 5.50375C14.9414 5.60764 15.2132 5.65085 15.4838 5.62987C15.7544 5.60889 16.0162 5.5243 16.248 5.383C17.791 4.443 19.558 6.209 18.618 7.753C18.4769 7.98466 18.3924 8.24634 18.3715 8.51677C18.3506 8.78721 18.3938 9.05877 18.4975 9.30938C18.6013 9.55999 18.7627 9.78258 18.9687 9.95905C19.1747 10.1355 19.4194 10.2609 19.683 10.325C21.439 10.751 21.439 13.249 19.683 13.675C19.4192 13.7389 19.1742 13.8642 18.968 14.0407C18.7618 14.2172 18.6001 14.4399 18.4963 14.6907C18.3924 14.9414 18.3491 15.2132 18.3701 15.4838C18.3911 15.7544 18.4757 16.0162 18.617 16.248C19.557 17.791 17.791 19.558 16.247 18.618C16.0153 18.4769 15.7537 18.3924 15.4832 18.3715C15.2128 18.3506 14.9412 18.3938 14.6906 18.4975C14.44 18.6013 14.2174 18.7627 14.0409 18.9687C13.8645 19.1747 13.7391 19.4194 13.675 19.683C13.249 21.439 10.751 21.439 10.325 19.683C10.2611 19.4192 10.1358 19.1742 9.95929 18.968C9.7828 18.7618 9.56011 18.6001 9.30935 18.4963C9.05859 18.3924 8.78683 18.3491 8.51621 18.3701C8.24559 18.3911 7.98375 18.4757 7.752 18.617C6.209 19.557 4.442 17.791 5.382 16.247C5.5231 16.0153 5.60755 15.7537 5.62848 15.4832C5.64942 15.2128 5.60624 14.9412 5.50247 14.6906C5.3987 14.44 5.23726 14.2174 5.03127 14.0409C4.82529 13.8645 4.58056 13.7391 4.317 13.675C2.561 13.249 2.561 10.751 4.317 10.325C4.5808 10.2611 4.82578 10.1358 5.032 9.95929C5.23822 9.7828 5.39985 9.56011 5.50375 9.30935C5.60764 9.05859 5.65085 8.78683 5.62987 8.51621C5.60889 8.24559 5.5243 7.98375 5.383 7.752C4.443 6.209 6.209 4.442 7.753 5.382C8.753 5.99 10.049 5.452 10.325 4.317Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        let Main = document.getElementById("Main");
+        let open = document.getElementById("open");
+        let close = document.getElementById("close")
+        let content = document.getElementById("content")
+
+        const showNav = (flag) => {
+            if (flag) {
+                Main.classList.toggle("-translate-x-full")
+                Main.classList.toggle("translate-x-0")
+                open.classList.toggle("hidden");
+                close.classList.toggle("hidden")
+                content.classList.toggle("opacity-50")
+            }
+        };
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
+        if (window.location.href.includes("cart")) {
+
+            document.getElementById('header').style.display = "none";
+
+        }
         const swiper = new Swiper(".mySwiper", {
             slidesPerView: "auto",
             centeredSlides: true,
@@ -948,6 +1370,569 @@
         }());
     </script>
     <!-- //TILT-JS -->
+
 </body>
+<script>
+    var map;
+
+   function initMap() {
+        var simpleStyle = [{
+                elementType: "labels",
+                stylers: [{
+                    visibility: "off"
+                }]
+            },
+            {
+                elementType: "geometry",
+                stylers: [{
+                    color: "#ebe3cd"
+                }]
+            },
+            {
+                elementType: "geometry.fill",
+                stylers: [{
+                    color: "#b6ad9a"
+                }]
+            },
+            {
+                elementType: "geometry.stroke",
+                stylers: [{
+                    color: "#ebe3cd"
+                }]
+            },
+        ];
+
+        var nightStyle = [{
+                elementType: "labels.text.fill",
+                stylers: [{
+                    color: "#ffffff"
+                }]
+            },
+            {
+                elementType: "labels.text.stroke",
+                stylers: [{
+                    color: "#000000"
+                }, {
+                    visibility: "off"
+                }],
+            },
+            {
+                elementType: "geometry",
+                stylers: [{
+                    color: "#000000"
+                }]
+            },
+            {
+                elementType: "geometry.fill",
+                stylers: [{
+                    color: "#1b1b1b"
+                }]
+            },
+            {
+                elementType: "geometry.stroke",
+                stylers: [{
+                    color: "#2c2c2c"
+                }]
+            },
+        ];
+
+        var retroStyle = [{
+                elementType: "labels.text.fill",
+                stylers: [{
+                    color: "#806b63"
+                }]
+            },
+            {
+                elementType: "labels.text.stroke",
+                stylers: [{
+                    color: "#ffffff"
+                }]
+            },
+            {
+                elementType: "geometry",
+                stylers: [{
+                    color: "#f5f1e6"
+                }]
+            },
+            {
+                elementType: "geometry.fill",
+                stylers: [{
+                    color: "#d9b38c"
+                }]
+            },
+            {
+                elementType: "geometry.stroke",
+                stylers: [{
+                    color: "#f5f1e6"
+                }]
+            },
+        ];
+
+        var custom = [{
+                featureType: "all",
+                elementType: "geometry",
+                stylers: [{
+                    color: "#202c3e",
+                }, ],
+            },
+            {
+                featureType: "all",
+                elementType: "labels.text.fill",
+                stylers: [{
+                        gamma: 0.01,
+                    },
+                    {
+                        lightness: 20,
+                    },
+                    {
+                        weight: "1.39",
+                    },
+                    {
+                        color: "#ffffff",
+                    },
+                ],
+            },
+            {
+                featureType: "all",
+                elementType: "labels.text.stroke",
+                stylers: [{
+                        weight: "0.96",
+                    },
+                    {
+                        saturation: "9",
+                    },
+                    {
+                        visibility: "on",
+                    },
+                    {
+                        color: "#000000",
+                    },
+                ],
+            },
+            {
+                featureType: "all",
+                elementType: "labels.icon",
+                stylers: [{
+                    visibility: "off",
+                }, ],
+            },
+            {
+                featureType: "landscape",
+                elementType: "geometry",
+                stylers: [{
+                        lightness: 30,
+                    },
+                    {
+                        saturation: "9",
+                    },
+                    {
+                        color: "#29446b",
+                    },
+                ],
+            },
+            {
+                featureType: "poi",
+                elementType: "geometry",
+                stylers: [{
+                    saturation: 20,
+                }, ],
+            },
+            {
+                featureType: "poi.park",
+                elementType: "geometry",
+                stylers: [{
+                        lightness: 20,
+                    },
+                    {
+                        saturation: -20,
+                    },
+                ],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry",
+                stylers: [{
+                        lightness: 10,
+                    },
+                    {
+                        saturation: -30,
+                    },
+                ],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry.fill",
+                stylers: [{
+                    color: "#193a55",
+                }, ],
+            },
+            {
+                featureType: "road",
+                elementType: "geometry.stroke",
+                stylers: [{
+                        saturation: 25,
+                    },
+                    {
+                        lightness: 25,
+                    },
+                    {
+                        weight: "0.01",
+                    },
+                ],
+            },
+            {
+                featureType: "water",
+                elementType: "all",
+                stylers: [{
+                    lightness: -20,
+                }, ],
+            },
+        ];
+
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+                lat: 19.19824,
+                lng: 72.949013
+            },
+            zoom: 12,
+            // mapId: "8e0a97af9386fef",
+            styles: custom,
+        });
+
+        var ac = [{
+                name: "Suresh",
+                lat: 19.202130706369797,
+                lng: 72.9083292536621,
+                job: "Electrician",
+                place: "JP Road, Nehru Nagar, Kandivli",
+            },
+            {
+                name: "Kunal",
+                lat: 19.202779148486115,
+                lng: 73.00548959301757,
+                job: "Electrician",
+                place: "JP Road, Nehru Nagar, parsi towers , Kandivli",
+            },
+            {
+                name: "Sandeep",
+                lat: 19.20829080326903,
+                lng: 72.85030770825195,
+                job: "Electrician",
+                place: "JP Road, Nehru Nagar, Kandivli",
+            },
+            {
+                name: "utkarsh",
+                lat: 19.202130706369797,
+                lng: 73.09612680004882,
+            },
+            {
+                name: "Kunal",
+                lat: 19.147652451155903,
+                lng: 73.00926614331054,
+            },
+            {
+                name: "Sandeep",
+                lat: 19.29742423122495,
+                lng: 73.06145120190429,
+            },
+        ];
+
+        var electricians = [{
+                name: "Suresh",
+                lat: 19.202130706369797,
+                lng: 72.9083292536621,
+            },
+            {
+                name: "Kunal",
+                lat: 19.202779148486115,
+                lng: 73.00548959301757,
+            },
+            {
+                name: "Sandeep",
+                lat: 19.20829080326903,
+                lng: 72.85030770825195,
+            },
+            {
+                name: "utkarsh",
+                lat: 19.202130706369797,
+                lng: 73.09612680004882,
+            },
+            {
+                name: "Kunal",
+                lat: 19.147652451155903,
+                lng: 73.00926614331054,
+            },
+            {
+                name: "Sandeep",
+                lat: 19.29742423122495,
+                lng: 73.06145120190429,
+            },
+        ];
+
+        var openInfoWindow = null;
+        var selectedMarker = null;
+        var selectedInfoWindow = null;
+
+        var myDiv = document.getElementById("loc-info");
+
+        for (var i = 0; i < electricians.length; i++) {
+            var electric =
+                "https://storage.cloudconvert.com/tasks/c042157a-0ca8-44e3-af03-6ad202e5cbbd/electrician.webp?AWSAccessKeyId=cloudconvert-production&Expires=1676995324&Signature=rAp7TRyP2cQJ5wjzk9YZPtWZ6cQ%3D&response-content-disposition=inline%3B%20filename%3D%22electrician.webp%22&response-content-type=image%2Fwebp";
+            var acRepair =
+                "https://storage.cloudconvert.com/tasks/357e1c41-047f-4e56-9eb9-9224b54ed4f5/maintenance.webp?AWSAccessKeyId=cloudconvert-production&Expires=1677010516&Signature=HZyUPTbGGoAvwd0zeBOmRePl6bM%3D&response-content-disposition=inline%3B%20filename%3D%22maintenance.webp%22&response-content-type=image%2Fwebp";
+            var plumbers =
+                "https://storage.cloudconvert.com/tasks/4c87e374-bef6-42e5-90c2-136eb795920a/plumber.webp?AWSAccessKeyId=cloudconvert-production&Expires=1677010398&Signature=W12%2FZ3%2FbE9UCBPrVcOJ5eIJTSKY%3D&response-content-disposition=inline%3B%20filename%3D%22plumber.webp%22&response-content-type=image%2Fwebp";
+
+            var markerImage = acRepair;
+            (function() {
+                var electrician = ac[i];
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: electrician.lat,
+                        lng: electrician.lng
+                    },
+                    map: map,
+                    title: electrician.name,
+                    icon: markerImage,
+                    animation: google.maps.Animation.BOUNCE,
+                });
+
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var userLatLng = new google.maps.LatLng(
+                        position.coords.latitude,
+                        position.coords.longitude
+                    );
+
+                    var markerLatLng = new google.maps.LatLng(
+                        electrician.lat,
+                        electrician.lng
+                    );
+                    var distance =
+                        google.maps.geometry.spherical.computeDistanceBetween(
+                            userLatLng,
+                            markerLatLng
+                        ) / 1000;
+
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: '<div style="text-align: center; max-width: 150px"> <h1 class="text-lg font-bold text-indigo-900 flex justify-center items-center gap-3">' +
+                            electrician.name +
+                            "<p class='text-md font-bold text-green-500'>" +
+                            distance.toFixed(0) +
+                            " km</p> </h1> <h4 class='font-semibold text-md'>" +
+                            electrician.place +
+                            "</h4></div> <br />",
+                    });
+
+                    marker.addListener("click", function() {
+                        if (selectedMarker && selectedInfoWindow) {
+                            selectedInfoWindow.close();
+                            selectedMarker.setAnimation(google.maps.Animation.BOUNCE);
+                        }
+
+                        infoWindow.open(map, marker);
+                        marker.setAnimation(google.maps.Animation.DROP);
+
+                        selectedMarker = marker;
+                        selectedInfoWindow = infoWindow;
+
+                        myDiv.innerHTML =
+                            "<h3 class='flex justify-center items-center gap-3 flex-col md:flex-row'>" +
+                            electrician.name +
+                            " <p class='pt-[2px]'>( " +
+                            electrician.job +
+                            " )</p> </h3>" +
+                            "<h4>" +
+                            electrician.place +
+                            "</h4>";
+                    });
+                });
+            })();
+        }
+
+        map.addListener("click", function(event) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                location: event.latLng
+            }, function(results, status) {
+                if (status === "OK") {
+                    if (results[0]) {
+                        document.getElementById("location").value =
+                            event.latLng.lat() + ", " + event.latLng.lng();
+                        document.getElementById("title").value = results[0].formatted_address;
+                    } else {
+                        window.alert("No results found");
+                    }
+                } else {
+                    window.alert("Geocoder failed due to: " + status);
+                }
+            });
+        });
+    }
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    function showPosition(position) {
+        var latitude = position.coords.latitude;
+        var longitude = position.coords.longitude;
+        document.getElementById("current-location").value =
+            latitude + ", " + longitude;
+    }
+
+    // -------------  Modal  -------------------
+
+    const openModalBtn = document.getElementById("openModalBtn");
+    const modalBackground = document.getElementById("modalBackground");
+    const cancelModalBtn = document.getElementById("cancelModalBtn");
+
+    function validateCheckbox() {
+        var checkstate = document.getElementById("option1");
+        if (checkstate.checked) {
+            document.getElementById("date").disabled = true;
+        } else {
+            document.getElementById("date").disabled = false;
+        }
+    }
+
+    openModalBtn.addEventListener("click", function() {
+        modalBackground.classList.add("show");
+        document.getElementById("option1").checked = false;
+        document.getElementById("date").value = "";
+        document.getElementById("time").disabled = true;
+        document.getElementById("time").innerHTML =
+            '<option value="" disabled selected hidden>Select A Date First</option>';
+    });
+
+    modalBackground.addEventListener("click", function(event) {
+        if (event.target === modalBackground) {
+            modalBackground.classList.remove("show");
+            // reset modal values here
+        }
+    });
+
+    cancelModalBtn.addEventListener("click", function() {
+        modalBackground.classList.remove("show");
+        // reset modal values here
+    });
+
+    // ---------------------- select slot ---------------------
+
+    var today = new Date();
+    var next15Days = new Date(today.getTime() + 15 * 24 * 60 * 60 * 1000);
+    var minDate = today.toISOString().slice(0, 10);
+    var maxDate = next15Days.toISOString().slice(0, 10);
+    document.getElementById("date").setAttribute("min", minDate);
+    document.getElementById("date").setAttribute("max", maxDate);
+
+    // populate the timeslots select input with 3 time slots for each day
+    function populateTimeslots() {
+        var timeslotSelect = document.getElementById("timeslot");
+        var selectedDate = new Date(document.getElementById("date").value);
+        timeslotSelect.innerHTML = "";
+        for (var i = 0; i < 3; i++) {
+            var option = document.createElement("option");
+            option.text = formatDate(selectedDate) + " " + formatTime(i);
+            option.value = i;
+            timeslotSelect.add(option);
+        }
+
+        enableButton();
+    }
+
+    // enable the submit button when a time slot is selected
+    function enableButton() {
+        var timeslotSelect = document.getElementById("timeslot");
+        var submitButton = document.getElementById("submit");
+        if (timeslotSelect.value !== "") {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+    const submitButton = document.getElementById("submit");
+
+    submitButton.disabled = true;
+
+    dateInput.addEventListener("change", function() {
+        if (dateInput.value !== "") {
+            timeInput.disabled = false;
+        } else {
+            timeInput.disabled = true;
+            submitButton.disabled = true;
+        }
+    });
+
+    timeInput.addEventListener("change", function() {
+        if (timeInput.value !== "") {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    });
+
+    function processData() {
+        const selectedDate = dateInput.value;
+        const selectedTime = timeInput.value;
+
+        var e = document.getElementById("time");
+        var text = e.options[e.selectedIndex].text;
+
+        console.log("hii");
+        console.log(selectedDate);
+        console.log(text);
+    }
+
+    document.getElementById("time").disabled = "true";
+
+    // --------------  new --------------
+
+    dateInput.addEventListener("change", function() {
+        const selectedDate = new Date(dateInput.value);
+        const currentDate = new Date();
+        const currentDateTime = new Date(
+            currentDate.getFullYear(),
+            currentDate.getMonth(),
+            currentDate.getDate(),
+            currentDate.getHours(),
+            0,
+            0,
+            0
+        );
+
+        if (selectedDate.getTime() === currentDateTime.getTime()) {
+            const currentHour = currentDate.getHours();
+            const availableTimes = ["4pm-6pm", "9pm-11pm"].filter((time) => {
+                const startHour = parseInt(time.split("-")[0]);
+                return startHour >= currentHour + 1;
+            });
+            populateSelectBox(availableTimes);
+        } else if (selectedDate > currentDateTime) {
+            const availableTimes = ["10am-1pm", "4pm-6pm", "7pm-11pm"];
+            populateSelectBox(availableTimes);
+        } else {
+            timeInput.innerHTML =
+                '<option value="" disabled selected hidden>No slots avialable</option>';
+        }
+    });
+
+    function populateSelectBox(times) {
+        timeInput.innerHTML =
+            "<option value='' disabled selected hidden>Time slots</option>";
+        for (let i = 0; i < times.length; i++) {
+            const option = document.createElement("option");
+            option.value = times[i];
+            option.text = times[i];
+            timeInput.appendChild(option);
+        }
+    }
+</script>
 
 </html>
