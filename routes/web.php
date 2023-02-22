@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\TechnicianController;
 use App\Http\Controllers\UserAuth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/home',[ServicesController::class,'serviceFetch']);
+Route::get('/appointment',[TechnicianController::class, 'techniciansFetch']);
  Route::view('/login','login');
  Route::view('/cart','cart');
  Route::view('/services','services');
