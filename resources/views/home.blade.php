@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <div class="relative px-4 sm:px-0">
+        <!-- <div class="relative px-4 sm:px-0">
             <div class="absolute inset-0 bg-gray-100 h-1/2"></div>
             <div class="relative grid mx-auto overflow-hidden bg-white divide-y rounded shadow sm:divide-y-0 sm:divide-x sm:max-w-screen-sm sm:grid-cols-3 lg:max-w-screen-md">
                 <div class="inline-block p-8 text-center">
@@ -122,6 +122,19 @@
                     </div>
                     <p class="font-bold tracking-wide text-gray-800">Working harder</p>
                 </div>
+            </div>
+        </div> -->
+
+        <div class="relative px-4 sm:px-0">
+            <div class="absolute inset-0 bg-gray-100 h-1/2"></div>
+            <div class="relative px-5 py-5 border-2 grid mx-auto overflow-hidden bg-white divide-y rounded shadow sm:divide-y-0 sm:divide-x sm:max-w-screen-sm sm:grid-cols-3 lg:max-w-screen-md">
+                <select name="" id="" class="py-2 px-2 rounded-md bg-gray-300 font-semibold focus:bg-gray-400">
+                   <option value="" disabled selected hidden>Select A Category</option>
+                   <option value="a">Electrician</option>
+                   <option value="b">Plumber</option>
+                   <option value="b">Ac Repair</option>
+                   <option value="b">Furniture</option>
+                </select>
             </div>
         </div>
     </div>
