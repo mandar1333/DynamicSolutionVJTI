@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/home',[ServicesController::class,'serviceFetch']);
 Route::get('/appointment',[TechnicianController::class, 'techniciansFetch']);
+Route::get('/mapservice',[TechnicianController::class, 'showLocations']);
  Route::view('/login','login');
  Route::view('/cart','cart');
  Route::view('/services','services');

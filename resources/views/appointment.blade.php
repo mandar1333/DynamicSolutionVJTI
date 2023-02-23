@@ -159,8 +159,9 @@
     }
 </style>
 
-
 <div class="flex flex-col gap-3 px-5 sm:px-20 py-10 mt-20" style="background: whitesmoke;">
+<input type="text" value="rr" id="positions">
+<input type="text" value="vv" id="title">
     <div id="map" class="min-h-[400px] sm:min-h-[475px]"></div>
     <div class="flex gap-5 flex-col md:flex-row">
         <div class="flex gap-8 w-[60%]">
@@ -257,11 +258,13 @@
             name: e.name,
             place: e.t_place,
             ratting: e.ratting,
-            job: e.s_category
+            job: e.s_category,
+            icon: e.icon
         });
+        console.log(e.s_category);
     });
 
-    console.log(technician.length)
+    console.log(technician.length);
 
     function initMap() {
         var simpleStyle = [{
@@ -479,51 +482,15 @@
 
         map = new google.maps.Map(document.getElementById("map"), {
             center: {
-                lat: 19.19824,
-                lng: 72.949013
+                // lat: 19.19824,
+                // lng: 72.949013
+                lat: 19.022480011,
+                lng: 72.855026245
             },
-            zoom: 12,
+            zoom: 14,
             // mapId: "8e0a97af9386fef",
             styles: custom,
-        });
-
-        var ac = [{
-                name: "Suraj Singh",
-                lat: 19.202130706369797,
-                lng: 72.9083292536621,
-                job: "Electrician",
-                place: "JP Road, Nehru Nagar, Kandivli",
-            },
-            {
-                name: "Kunal",
-                lat: 19.202779148486115,
-                lng: 73.00548959301757,
-                job: "Electrician",
-                place: "Ghuolai Nagar Road, Anand Vihar Complex, Thane 400605, Maharashtra Anand Vihar Complex Thane India ",
-            },
-            {
-                name: "Sandeep",
-                lat: 19.20829080326903,
-                lng: 72.85030770825195,
-                job: "Electrician",
-                place: "JP Road, Nehru Nagar, Kandivli",
-            },
-            {
-                name: "utkarsh",
-                lat: 19.202130706369797,
-                lng: 73.09612680004882,
-            },
-            {
-                name: "Kunal",
-                lat: 19.147652451155903,
-                lng: 73.00926614331054,
-            },
-            {
-                name: "Sandeep",
-                lat: 19.29742423122495,
-                lng: 73.06145120190429,
-            },
-        ];
+        });  
 
         var openInfoWindow = null;
         var selectedMarker = null;
@@ -540,7 +507,7 @@
             var electric =
                 "https://cdn-icons-png.flaticon.com/32/4003/4003447.png";
             var acRepair =
-                "https://img.icons8.com/color/48/null/user-location.png";
+                "https://img.icons8.com/external-itim2101-flat-itim2101/44/000000/external-electrician-male-occupation-avatar-itim2101-flat-itim2101.png";
             var plumbers =
                 "";
 
@@ -555,7 +522,8 @@
                     },
                     map: map,
                     title: electrician.name,
-                    icon: markerImage,
+                    icon: electrician.icon,
+                    // icon: markerImage,
                     animation: google.maps.Animation.BOUNCE,
                 });
 
@@ -783,8 +751,8 @@
             }, function(results, status) {
                 if (status === "OK") {
                     if (results[0]) {
-                        document.getElementById("location").value =
-                            event.latLng.lat() + ", " + event.latLng.lng();
+                        document.getElementById("positions").value =
+                        event.latLng.lat() + ", " + event.latLng.lng();
                         document.getElementById("title").value = results[0].formatted_address;
                     } else {
                         window.alert("No results found");

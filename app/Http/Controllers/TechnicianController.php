@@ -10,9 +10,18 @@ use Illuminate\Support\Facades\DB;
 
 class TechnicianController extends Controller
 {
-    //
+    
     function techniciansFetch(){
         $t_data= DB::table('services')->join('technicians','services.s_id','=','technicians.s_id')->where('services.s_id',1 )->get();
         return view("/appointment",["t_data"=>$t_data]);
+    }
+
+    function showLocations(Request $request){
+        $selectedS_ID = $request -> input("nameindex");
+        $t_data= DB::table('services')->join('technicians','services.s_id','=','technicians.s_id')->where('services.s_id',$selectedS_ID )->get();
+
+        // return "Selected Category is :- " . $selectedS_ID;
+        return view("/appointment",["t_data"=>$t_data]);
+        // return redirect("/appointment");
     }
 }
