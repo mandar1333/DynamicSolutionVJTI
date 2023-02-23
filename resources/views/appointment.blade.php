@@ -160,8 +160,8 @@
 </style>
 
 <div class="flex flex-col gap-3 px-5 sm:px-20 py-10 mt-20" style="background: whitesmoke;">
-<input type="text" value="rr" id="positions">
-<input type="text" value="vv" id="title">
+<!-- <input type="text" value="rr" id="positions">
+<input type="text" value="vv" id="title"> -->
     <div id="map" class="min-h-[400px] sm:min-h-[475px]"></div>
     <div class="flex gap-5 flex-col md:flex-row">
         <div class="flex gap-8 w-[60%]">
@@ -544,7 +544,7 @@
                         ) / 1000;
 
                     var infoWindow = new google.maps.InfoWindow({
-                        content: `<div style="text-align: center; max-width: 150px"> <h1 class="text-lg font-bold text-indigo-900 flex justify-center items-center gap-3">
+                        content: `<div style="text-align: center;max-width: 160px;" class="pr-2"> <h1 class="text-lg font-bold text-indigo-900 flex flex-wrap justify-center items-center gap-x-3 gap-y-0">
                         ${electrician.name}
                         <p  class='text-md font-bold text-green-500'>
                         ${ distance.toFixed(0)}
@@ -579,7 +579,7 @@
                                 <p class='pt-[2px]'>(${electrician.job})</p>  
                             </div>
                             </br>
-                            <h4 id='t_place'>
+                            <h4 id='t_place' class='w-full md:w-[50%]'>
                                 ${electrician.place} 
                             </h4> 
                             <input id='t_dis' type='hidden' class='' value='${distance.toFixed(0)}'></input>`;
